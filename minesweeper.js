@@ -17,25 +17,34 @@ var initialize = function() {
 }
 
 function grid(row, col, callBack) {
-	let numMines = 10;
-	let placeHolderVal = 0;
+	row = $('#row').val() ? parseInt($('#row').val()) : 10;
+	col = $('#col').val() ? parseInt($('#col').val()) : 10;
 	let numOfCells = row * col;
+	let mineCalc = Math.floor(Math.random() * row) + 1;
+	let numMines = (mineCalc > numOfCells) ?  Math.floor(mineCalc - (numofCells/2)) : mineCalc;
+	console.log(numMines)
+	$('#row').val(row)
+	$('#col').val(col)
+	$('#mines').val(numMines);
+	let cellId = 0;
 	let gameGrid = $('.game');
+
+
 
 	//build grid
 	for (let r = 0; r < row; r++) {
 		let gridRow = $("<div class='row'>").appendTo(gameGrid);
 
 		for (let c = 0; c < col; c++) {
-			let cell = $("<div class='cell cell_" + placeHolderVal +"'>").appendTo(gridRow);
+			let cell = $("<div class='cell cell_" + cellId +"'>").appendTo(gridRow);
 			cell.html('_');
-			++placeHolderVal;
+			++cellId;
 
 			cell.click(function(el, r, c, i) {
 				return function() {
 					callBack(el, r, c, i);
 				}
-			}(cell, r, c, placeHolderVal))
+			}(cell, r, c, cellId))
 		}
 	}
 
