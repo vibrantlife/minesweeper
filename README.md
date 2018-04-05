@@ -36,6 +36,7 @@ After conducting research from the resources below. I found my solution:
 * [Responsive Tables with CSS](https://wisdmlabs.com/blog/responsive-tables-using-css-div-tag/)
 * [Logic for Minesweeper Game](https://www.techrepublic.com/article/building-a-minesweeper-type-game-in-javascript/)
 * [Selecting Random Cells](https://stackoverflow.com/questions/34308247/select-random-table-cells-with-js)
+* [Button Hover Affects](https://codepen.io/ritchiejacobs/pen/qEJjBM)
 
 
 

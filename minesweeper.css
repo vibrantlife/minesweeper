@@ -29,7 +29,7 @@ header, footer {
 
 footer {
 	font-style: italic;
-	height: 50px;
+	height: 5em;
 }
 
 .buttonContainer {
@@ -38,7 +38,7 @@ footer {
 }
 
 .form-group {
-	margin: 0 auto;
+	margin: 0 auto 1em;
 }
 
 .btn {
@@ -85,6 +85,14 @@ footer {
 
 .btn:hover {
 	background-color: #02bfe7;
+}
+
+input {
+	height: 2em;
+	border: 1px solid #efefef;
+	border-radius: 3px;
+	background-color: #fafafa;
+	padding: 9px 0 7px 8px;
 }
 
 
