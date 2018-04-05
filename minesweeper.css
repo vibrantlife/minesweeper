@@ -52,6 +52,8 @@ footer {
 	display: table-cell;
 	width: 200px;
 	background-color: #ccc;
+	text-align: center;
+	color: #ccc;
 }
 
 

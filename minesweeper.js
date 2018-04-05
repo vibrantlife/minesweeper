@@ -1,38 +1,37 @@
 $(document).ready(function() {
 	$('#startGame').on('click', function() {
-		//initialize();
-		grid(10, 10, gridCallback);
-		console.log('clicked')
+		initialize();
 	})
 })
+	var initialize = function() {
 	var lastClicked;
-
-	var gridCallback = function(el, row, col, i) {
-		console.log('in initialize');
-		console.log('clicked on element ', el);
-		console.log('clicked on row ', row);
-		console.log('clicked on col ', col);
-		console.log('clicked item ', i);
-
-		el.className = 'clicked';
-		if(lastClicked) {
-			lastClicked.className='';
+		grid(10, 10, function(el, row, col, i) {
+			console.log('clicked on element ', el);
+			console.log('clicked on row ', row);
+			console.log('clicked on col ', col);
+			console.log('clicked item ', i);
+			$(el).addClass('clicked');
+			console.log(lastClicked)
+			if (lastClicked) {
+				console.log(lastClicked)
+				lastClicked.removeClass('clicked');
+			}
 			lastClicked = el;
-		}
+		})
 	}
 
-	//var initialize = grid(10, 10, gridCallback);
+
 
 	function grid(row, col, callBack) {
-	// debugger;
 	var i = 0;
 	let gameGrid = $('.game');
-	for (let r = 0; r < row; ++r) {
+	for (let r = 0; r < row; r++) {
 		let gridRow = $("<div class='row'>").appendTo(gameGrid);
 
-		for (let c = 0; c < col; ++c) {
+		for (let c = 0; c < col; c++) {
 			let cell = $("<div class='cell'>").appendTo(gridRow);
-			cell.html("<p>" + ++i + "</p>");
+			++i;
+			cell.html('_');
 
 			cell.click(function(el, r, c, i) {
 				return function() {
@@ -41,7 +40,6 @@ $(document).ready(function() {
 			}(cell, r, c, i))
 		}
 	}
-	return grid;
 }
 
 
