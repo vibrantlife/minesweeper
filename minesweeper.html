@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 	<head>
 		<title>Minesweeper - Let's Play!</title>
 		<!-- Font -->
@@ -23,14 +23,17 @@
 			<h1>Let's Play Minesweeper</h1>
 		</header>
 		<div id="main">
-			<div>
+			<div class="buttonContainer">
 				<button id="startGame">Start Game!</button>
+				<label for="row">Number of Rows:</label>
+				<input type="number" name="row" id="row" placeholder="Enter Number Here">
+				<label for="col">Number of Columns</label>
+				<input type="number" name="col" id="col" placeholder="Enter Number Here">
 			</div>
-			<p><i class="fa fa-bomb"></i></p>
 			<div class="game"></div>
 		</div>
 	<footer>
-		<p class="footer-styling">Made by Nichole</p>
+		<h6 class="footer-styling">Made by Nichole</h6>
 	</footer>
 	</body>
 

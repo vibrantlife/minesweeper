@@ -5,22 +5,13 @@ $(document).ready(function() {
 	})
 })
 
-
-
 var initialize = function() {
 		grid(10, 10, function(el, row, col, i) {
 		var lastClicked = el;
-			// console.log('clicked on element ', el);
-			// console.log('clicked on row ', row);
-			// console.log('clicked on col ', col);
-			// console.log('clicked item ', i);
-			// $(el).addClass('clicked');
 			if (lastClicked) {
 				$(lastClicked).children().removeClass('clicked');
-				console.log($(el).children())
 			}
 			lastClicked = el;
-		// console.log(el)
 		})
 
 }
@@ -29,8 +20,9 @@ function grid(row, col, callBack) {
 	let numMines = 10;
 	let placeHolderVal = 0;
 	let numOfCells = row * col;
-
 	let gameGrid = $('.game');
+
+	//build grid
 	for (let r = 0; r < row; r++) {
 		let gridRow = $("<div class='row'>").appendTo(gameGrid);
 
@@ -47,52 +39,91 @@ function grid(row, col, callBack) {
 		}
 	}
 
+	//place mines && caution (X)
 	let i = 0;
 	while ( i <= numMines) {
 		let randomCell = Math.floor(Math.random() * numOfCells);
 		let cell = '.cell_'
-		let below = cell + (randomCell + 10);
-		let above = cell + (randomCell - 10);
+		let target = (cell + randomCell)
+		let caution = "<i class='fa fa-times-circle selected caution clicked'>";
+		
+		let bottom = cell + (randomCell + 10);
+		let bottomLeft = cell + (randomCell + 9);
+		let bottomRight = cell + (randomCell + 11);
+		let top = cell + (randomCell - 10);
+		let topLeft = cell + (randomCell - 11);
+		let topRight = cell + (randomCell - 9);
 		let left = cell + (randomCell - 1);
 		let right = cell + (randomCell + 1);
-		let caution = "<i class='fa fa-times-circle selected caution clicked'>";
 
-		if ($(cell + randomCell).html() === '_') {
-				$(cell + randomCell).html("<i class='fa fa-bomb selected bomb clicked'>");
+		if ($(target).html() === '_') {
+				$(target).html("<i class='fa fa-bomb selected bomb clicked'>");
 
-					if ($(below).html() === '_' ) {
-						$(below).html(caution);
+					if ($(bottom).html() === '_' ) {
+						$(bottom).html(caution);
 					}
-					if ($(above).html() === '_') {
-						$(above).html(caution);
+					if ($(top).html() === '_') {
+						$(top).html(caution);
 					}
 					if ($(left).html() === '_') {
-						//if random cell ends in 0
-							// do nothing
-						//else print
-						$(left).html(caution);
+						if ((target).charAt(target.length - 1) === '0') {
+							continue;
+						}
+						else {
+							$(left).html(caution);
+						}
 					}
 					if ($(right).html() === '_') {
-						//if randomCell ends in 9 do nothing 
-						//else print 
-						$(right).html(caution);
+						if ((target).charAt(target.length - 1) === '9') {
+							continue;
+						}
+						else {
+							$(right).html(caution);
+						}
 					}
-		}
+					if ($(bottomLeft).html() === '_') {
+						if ((target).charAt(target.length - 1) === '0') {
+							continue;
+						}
+						else {
+							$(bottomLeft).html(caution);
+						}
+					}
+					if ($(bottomRight).html() === '_') {
+						if ((target).charAt(target.length - 1) === '9') {
+							continue;
+						}
+						else {
+							$(bottomRight).html(caution);
+						}
+					}
+					if ($(topLeft).html() === '_') {
+						if ((target).charAt(target.length - 1) === '0') {
+							continue;
+						}
+						else {
+							$(topLeft).html(caution);
+						}
+					}
+					if ($(topRight).html() === '_') {
+						if ((target).charAt(target.length - 1) === '9') {
+							continue;
+						}
+						else {
+							$(topRight).html(caution);
+						}
+					}
 
+		}
 		i++;
 	}
 
+	//place safe tiles
 	$('.cell').each(function(i, cell) {
 		if (!$(cell).children().hasClass('selected')) {
 			$(cell).html("<i class='fa fa-check-circle safe clicked'>")
 		}
-	})
-
-
-
-
-
-
+	});
 }
 
 
