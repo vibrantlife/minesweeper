@@ -1,12 +1,13 @@
 $(document).ready(function() {
-
 	$('#startGame').on('click', function() {
-		
+		//initialize();
+		grid(10, 10, gridCallback);
+		console.log('clicked')
 	})
 })
 	var lastClicked;
 
-	var initialize = grid(10, 10, function(el, row, col, i) {
+	var gridCallback = function(el, row, col, i) {
 		console.log('in initialize');
 		console.log('clicked on element ', el);
 		console.log('clicked on row ', row);
@@ -18,7 +19,9 @@ $(document).ready(function() {
 			lastClicked.className='';
 			lastClicked = el;
 		}
-	});
+	}
+
+	//var initialize = grid(10, 10, gridCallback);
 
 	function grid(row, col, callBack) {
 	// debugger;
@@ -35,7 +38,7 @@ $(document).ready(function() {
 				return function() {
 					callBack(el, r, c, i);
 				}
-			}(cell, r, c, i), false)
+			}(cell, r, c, i))
 		}
 	}
 	return grid;
