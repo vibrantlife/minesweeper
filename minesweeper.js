@@ -55,10 +55,10 @@ function grid(row, col, callBack) {
 		let above = cell + (randomCell - 10);
 		let left = cell + (randomCell - 1);
 		let right = cell + (randomCell + 1);
-		let caution = "<i class='fa fa-times-circle caution clicked'>";
+		let caution = "<i class='fa fa-times-circle selected caution clicked'>";
 
 		if ($(cell + randomCell).html() === '_') {
-				$(cell + randomCell).html("<i class='fa fa-bomb bomb clicked'>");
+				$(cell + randomCell).html("<i class='fa fa-bomb selected bomb clicked'>");
 
 					if ($(below).html() === '_' ) {
 						$(below).html(caution);
@@ -81,6 +81,14 @@ function grid(row, col, callBack) {
 
 		i++;
 	}
+
+	$('.cell').each(function(i, cell) {
+		if (!$(cell).children().hasClass('selected')) {
+			$(cell).html("<i class='fa fa-check-circle safe clicked'>")
+		}
+	})
+
+
 
 
 
