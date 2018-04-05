@@ -51,10 +51,31 @@ function grid(row, col, callBack) {
 	while ( i < numMines) {
 		let randomCell = Math.floor(Math.random() * numOfCells);
 		let cell = '.cell_'
+		let below = cell + (randomCell + 10);
+		let above = cell + (randomCell - 10);
+		let left = cell + (randomCell - 1);
+		let right = cell + (randomCell + 1);
+		// debugger;
+		let caution = "<i class='fa fa-times-circle caution'>";
+
+		// console.log('group ' + randomCell + ', ' + right + left + above + below )
 
 
 		if ($(cell + randomCell).html() === '_') {
-			$(cell + randomCell).html("<i class='fa fa-bomb bomb'>");
+				$(cell + randomCell).html("<i class='fa fa-bomb bomb'>");
+
+					if ($(below).html() === '_' ) {
+						$(below).html(caution);
+					}
+					if ($(above).html() === '_') {
+						$(above).html(caution);
+					}
+					if ($(left).html() === '_') {
+						$(left).html(caution);
+					}
+					if ($(right).html() === '_') {
+						$(right).html(caution);
+					}
 		}
 
 		i++;

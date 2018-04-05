@@ -60,6 +60,14 @@ footer {
 	color: #CA0926;
 }
 
+.safe {
+	color: #3AB313;
+}
+
+.caution {
+	color: #FFCF15;
+}
+
 
 
 /* media queries for responsiveness */
