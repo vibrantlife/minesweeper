@@ -68,6 +68,10 @@ footer {
 	color: #FFCF15;
 }
 
+.clicked {
+	visibility: hidden;
+}
+
 
 
 /* media queries for responsiveness */

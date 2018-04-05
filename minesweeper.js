@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$('#startGame').on('click', function() {
+		$('.game').html('')
 		initialize();
 	})
 })
@@ -7,23 +8,22 @@ $(document).ready(function() {
 
 
 var initialize = function() {
-	var lastClicked;
 		grid(10, 10, function(el, row, col, i) {
-			console.log('clicked on element ', el);
+		var lastClicked = el;
+			// console.log('clicked on element ', el);
 			// console.log('clicked on row ', row);
 			// console.log('clicked on col ', col);
 			// console.log('clicked item ', i);
-			$(el).addClass('clicked');
+			// $(el).addClass('clicked');
 			if (lastClicked) {
-				lastClicked.removeClass('clicked');
+				$(lastClicked).children().removeClass('clicked');
+				console.log($(el).children())
 			}
 			lastClicked = el;
 		// console.log(el)
 		})
 
 }
-
-
 
 function grid(row, col, callBack) {
 	let numMines = 10;
@@ -48,21 +48,17 @@ function grid(row, col, callBack) {
 	}
 
 	let i = 0;
-	while ( i < numMines) {
+	while ( i <= numMines) {
 		let randomCell = Math.floor(Math.random() * numOfCells);
 		let cell = '.cell_'
 		let below = cell + (randomCell + 10);
 		let above = cell + (randomCell - 10);
 		let left = cell + (randomCell - 1);
 		let right = cell + (randomCell + 1);
-		// debugger;
-		let caution = "<i class='fa fa-times-circle caution'>";
-
-		// console.log('group ' + randomCell + ', ' + right + left + above + below )
-
+		let caution = "<i class='fa fa-times-circle caution clicked'>";
 
 		if ($(cell + randomCell).html() === '_') {
-				$(cell + randomCell).html("<i class='fa fa-bomb bomb'>");
+				$(cell + randomCell).html("<i class='fa fa-bomb bomb clicked'>");
 
 					if ($(below).html() === '_' ) {
 						$(below).html(caution);
@@ -71,15 +67,22 @@ function grid(row, col, callBack) {
 						$(above).html(caution);
 					}
 					if ($(left).html() === '_') {
+						//if random cell ends in 0
+							// do nothing
+						//else print
 						$(left).html(caution);
 					}
 					if ($(right).html() === '_') {
+						//if randomCell ends in 9 do nothing 
+						//else print 
 						$(right).html(caution);
 					}
 		}
 
 		i++;
 	}
+
+
 
 
 }
