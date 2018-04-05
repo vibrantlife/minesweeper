@@ -33,6 +33,7 @@ Add additional notes about how to deploy this on a live system
 After conducting research from the resources below. I found my solution: 
 
 * [Flexbox Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+* [Responsive Tables with CSS](https://wisdmlabs.com/blog/responsive-tables-using-css-div-tag/)
 
 
 

@@ -33,6 +33,28 @@ footer {
 	font-style: italic;
 }
 
+/*table styling*/
+.game {
+	display: table;
+	width: auto;
+	background-color: #eee;
+	border: 1px solid black;
+	border-spacing: 5px;
+}
+
+.row {
+	display: table-row;
+	width: auto;
+	clear: both;
+}
+
+.cell {
+	display: table-cell;
+	width: 200px;
+	background-color: #ccc;
+}
+
+
 
 /* media queries for responsiveness */
 
