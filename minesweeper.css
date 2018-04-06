@@ -12,9 +12,10 @@ html, body {
 
 
 #main {
-	margin: 1em;
-	padding: 0;
+	margin: 0;
+	padding: 1em;
 	min-height: 100%;
+	background-color: #f1f1f1;
 }
 
 header, footer {
@@ -24,7 +25,7 @@ header, footer {
 	min-height: 80px;
 	text-align: center;
 	background-color: #aeb0b5;
-	color: #fff;
+	color: #f1f1f1;
 }
 
 footer {
@@ -42,11 +43,9 @@ footer {
 }
 
 .btn {
-	height: 50px;
-	width: 200px;
-	font-style: 20px;
+	height: auto;
+	width: 9em;
 	font-weight: bold;
-	box-shadow: 0px 0px 5px 0px (0, 0, 0, 0.55);
 	transition: background 0.3s;
 	cursor: pointer;
 	display: table;
@@ -79,7 +78,7 @@ footer {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-	color: white;
+	color: #f1f1f1;
 	box-shadow: none;
 }
 
@@ -89,10 +88,10 @@ footer {
 
 input {
 	height: 2em;
-	border: 1px solid #efefef;
+	border: 1px solid #d6d7d9;
 	border-radius: 3px;
-	background-color: #fafafa;
-	padding: 9px 0 7px 8px;
+	background-color: #f1f1f1;
+	padding: 0.5em;
 }
 
 

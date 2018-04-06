@@ -22,14 +22,11 @@ function grid(row, col, callBack) {
 	let numOfCells = row * col;
 	let mineCalc = Math.floor(Math.random() * row) + 1;
 	let numMines = (mineCalc > numOfCells) ?  Math.floor(mineCalc - (numofCells/2)) : mineCalc;
-	console.log(numMines)
 	$('#row').val(row)
 	$('#col').val(col)
 	$('#mines').val(numMines);
 	let cellId = 0;
-	let gameGrid = $('.game');
-
-
+	const gameGrid = $('.game');
 
 	//build grid
 	for (let r = 0; r < row; r++) {
@@ -52,77 +49,49 @@ function grid(row, col, callBack) {
 	let i = 0;
 	while ( i <= numMines) {
 		let randomCell = Math.floor(Math.random() * numOfCells);
-		let cell = '.cell_'
-		let target = (cell + randomCell)
-		let caution = "<i class='fa fa-times-circle selected caution clicked'>";
+		let cellPrefix = '.cell_';
+		let target = (cellPrefix + randomCell);
+		const caution = "<i class='fa fa-times-circle selected caution clicked'>";
 		
-		let bottom = cell + (randomCell + 10);
-		let bottomLeft = cell + (randomCell + 9);
-		let bottomRight = cell + (randomCell + 11);
-		let top = cell + (randomCell - 10);
-		let topLeft = cell + (randomCell - 11);
-		let topRight = cell + (randomCell - 9);
-		let left = cell + (randomCell - 1);
-		let right = cell + (randomCell + 1);
+		let topLeft = cellPrefix + (randomCell - 11);
+		let top = cellPrefix + (randomCell - 10);
+		let topRight = cellPrefix + (randomCell - 9);
+		let left = cellPrefix + (randomCell - 1);
+		let right = cellPrefix + (randomCell + 1);
+		let bottomLeft = cellPrefix + (randomCell + 9);
+		let bottom = cellPrefix + (randomCell + 10);
+		let bottomRight = cellPrefix + (randomCell + 11);
 
 		if ($(target).html() === '_') {
-				$(target).html("<i class='fa fa-bomb selected bomb clicked'>");
+			$(target).html("<i class='fa fa-bomb selected bomb clicked'>");
 
-					if ($(bottom).html() === '_' ) {
-						$(bottom).html(caution);
-					}
-					if ($(top).html() === '_') {
-						$(top).html(caution);
-					}
-					if ($(left).html() === '_') {
-						if ((target).charAt(target.length - 1) === '0') {
-							continue;
-						}
-						else {
-							$(left).html(caution);
-						}
-					}
-					if ($(right).html() === '_') {
-						if ((target).charAt(target.length - 1) === '9') {
-							continue;
-						}
-						else {
-							$(right).html(caution);
-						}
-					}
-					if ($(bottomLeft).html() === '_') {
-						if ((target).charAt(target.length - 1) === '0') {
-							continue;
-						}
-						else {
-							$(bottomLeft).html(caution);
-						}
-					}
-					if ($(bottomRight).html() === '_') {
-						if ((target).charAt(target.length - 1) === '9') {
-							continue;
-						}
-						else {
-							$(bottomRight).html(caution);
-						}
-					}
-					if ($(topLeft).html() === '_') {
-						if ((target).charAt(target.length - 1) === '0') {
-							continue;
-						}
-						else {
-							$(topLeft).html(caution);
-						}
-					}
-					if ($(topRight).html() === '_') {
-						if ((target).charAt(target.length - 1) === '9') {
-							continue;
-						}
-						else {
-							$(topRight).html(caution);
-						}
-					}
+				if ($(bottom).html() === '_' ) {
+					$(bottom).html(caution);
+				}
+				if ($(top).html() === '_') {
+					$(top).html(caution);
+				}
 
+				if (placeCaution(left, '0', target, caution)) {
+					continue;
+				}
+
+				if (placeCaution(right, '9', target, caution)) {
+					continue;
+				}
+
+				if (placeCaution(bottomLeft, '0', target, caution)) {
+					continue;
+				}
+				if (placeCaution(bottomRight, '9', target, caution)) {
+					continue;
+				}
+				if (placeCaution(topLeft, '0', target, caution)) {
+					continue;
+				}
+				if (placeCaution(topRight, '9', target, caution)) {
+					continue;
+				}
 		}
 		i++;
 	}
@@ -134,6 +103,20 @@ function grid(row, col, callBack) {
 		}
 	});
 }
+
+var placeCaution = function(location, checkPoint, target, caution) {
+
+	if ($(location).html() === '_') {
+		if((target).charAt(target.length - 1) === checkPoint) {
+			return true;
+		}
+		else {
+			$(location).html(caution);
+		}
+	}
+	return false;
+}
+
 
 
 

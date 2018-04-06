@@ -8,25 +8,35 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Python must be installed on your computer.
 
 ```
-Give examples
+* Python comes pre-installed on Mac. 
+* [Install Python on Windows](https://www.howtogeek.com/197947/how-to-install-python-on-windows/)
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Download Repo from Github
 
 ```
-Give the example
+1. Under repository name, click Clone or download
+2. In the clone with HTTPs section, click clipboard to copy the clone URL for the repository
+3. Open Terminal 
+4. Change to your preferred destination for cloning directions
+	ex: cd Documents/
+5. Type git clone, and then paste the URL from step 2. 
+	ex: git clone https://github.com/vibrantlife/minesweeper.github.com
+6. Press Enter
 ```
 
 ## Deployment
+```
+1. Open Terminal 
+2. Enter python -m SimpleHTTPServer
 
-Add additional notes about how to deploy this on a live system
+```
 
 ## Acknowledgements
 
@@ -42,7 +52,7 @@ After conducting research from the resources below. I found my solution:
 
 ## Built With
 
-* [example](https://example.io/) - Used to generate example
+* [jQuery](https://jquery.com/)
 
 ## License
 

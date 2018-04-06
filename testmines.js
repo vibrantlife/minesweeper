@@ -4,7 +4,6 @@ var minesweeper = function(arr) {
 	let mineCount = 10;
 
 	for (let i = 0; i < 10; i++) {
-		let row = new Array();
 		arr.push(row);
 	}
 	for (let i = 0; i < arr.length; i++) {
@@ -13,9 +12,6 @@ var minesweeper = function(arr) {
 		}
 	}
 
-
-
-	// console.log(mineCount)
 
 	let i = 0;
 	while (i < mineCount) {
