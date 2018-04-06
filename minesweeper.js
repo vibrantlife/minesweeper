@@ -15,6 +15,12 @@ var initialize = function() {
 
 			if (el.children().hasClass('bomb')) {
 				$('.bomb_audio').trigger('play');
+				setTimeout(function(){
+					alert('You Lose!')
+					$('.game').html('');
+					initialize();
+				}, 600);
+				
 			}
 		})
 
