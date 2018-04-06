@@ -12,6 +12,10 @@ var initialize = function() {
 				$(lastClicked).children().removeClass('clicked');
 			}
 			lastClicked = el;
+
+			if (el.children().hasClass('bomb')) {
+				$('.bomb_audio').trigger('play');
+			}
 		})
 
 }
