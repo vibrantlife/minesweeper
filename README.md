@@ -13,8 +13,6 @@ Python must be installed on your computer. Volume must be turned on.
 ```
 * Python comes pre-installed on Mac. 
 * [Install Python on Windows](https://www.howtogeek.com/197947/how-to-install-python-on-windows/)
-
-
 ```
 
 ### Installing
@@ -36,7 +34,6 @@ Download Repo from Github
 ```
 1. Open Terminal 
 2. Enter python -m SimpleHTTPServer
-
 ```
 
 ## Acknowledgements
