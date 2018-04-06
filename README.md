@@ -51,6 +51,7 @@ After conducting research from the resources below. I found my solution:
 ## Built With
 
 * [jQuery](https://jquery.com/)
+* [FontAwesome](https://fontawesome.com/)
 
 ## License
 
